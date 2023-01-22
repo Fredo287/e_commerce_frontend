@@ -4,10 +4,10 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  Typography,
   Button,
 } from '@mui/material';
 import useStyles from '../atoms/AtomicStyles';
+import ProductDescription from '../atoms/ProductDescription';
 
 const ProductCard: FC = () => {
   const classes = useStyles();
@@ -21,9 +21,7 @@ const ProductCard: FC = () => {
           title="Image title"
         />
         <CardContent>
-          <Typography variant="h6">Product Title</Typography>
-          <Typography variant="subtitle2"> Product description </Typography>
-          <Typography variant="subtitle1"> Product Price: $$$ </Typography>
+          <ProductDescription />
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
