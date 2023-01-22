@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Typography, Grid, Container } from '@mui/material';
+import { Typography, Grid, Container, Box } from '@mui/material';
 import FooterDescription from '../molecules/FooterDescription';
 import SocialMediaIcons from '../molecules/SocialMediaIcons';
 import useStyles from '../atoms/AtomicStyles';
