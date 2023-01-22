@@ -41,7 +41,7 @@ const Header: FC = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#D36' }}>
+    <AppBar position="static" style={{ backgroundColor: '#292400' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
