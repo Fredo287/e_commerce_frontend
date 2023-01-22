@@ -1,14 +1,17 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import {
   Container,
   Paper,
   Typography,
   Stepper,
   StepLabel,
+  Step,
+  Box,
+  Button,
 } from '@mui/material';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
+import AddressForm from '../organisms/AddressForm';
+import PaymentForm from '../organisms/PaymentForm';
+import Review from '../organisms/Review';
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
@@ -26,6 +29,16 @@ function getStepContent(step: number) {
 }
 
 const Checkout: FC = () => {
+  const [activeStep, setActiveStep] = React.useState(0);
+
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep(activeStep - 1);
+  };
+
   return (
     <div>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
@@ -44,7 +57,7 @@ const Checkout: FC = () => {
             ))}
           </Stepper>
           {activeStep === steps.length ? (
-            <React.Fragment>
+            <div>
               <Typography variant="h5" gutterBottom>
                 Thank you for your order.
               </Typography>
@@ -53,9 +66,9 @@ const Checkout: FC = () => {
                 confirmation, and will send you an update when your order has
                 shipped.
               </Typography>
-            </React.Fragment>
+            </div>
           ) : (
-            <React.Fragment>
+            <div>
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
@@ -71,10 +84,9 @@ const Checkout: FC = () => {
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                 </Button>
               </Box>
-            </React.Fragment>
+            </div>
           )}
         </Paper>
-        <Copyright />
       </Container>
     </div>
   );
