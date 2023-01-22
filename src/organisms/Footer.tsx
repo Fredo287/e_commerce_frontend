@@ -12,10 +12,26 @@ const Footer: FC = () => {
         <Grid item xs={12} sm={6} md={4}>
           <FooterDescription />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          style={{ display: 'flex', flexDirection: 'column-reverse' }}
+        >
           <Typography>Copyright@E-Commerce Application</Typography>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          style={{
+            display: 'flex',
+            flexDirection: 'column-reverse',
+            justifyContent: 'center',
+          }}
+        >
           <SocialMediaIcons />
         </Grid>
       </Grid>
