@@ -27,7 +27,7 @@ const ProductCard: FC = () => {
           <Button
             size="medium"
             variant="contained"
-            style={{ backgroundColor: '#EF3340' }}
+            style={{ backgroundColor: '#292400' }}
           >
             View Product
           </Button>

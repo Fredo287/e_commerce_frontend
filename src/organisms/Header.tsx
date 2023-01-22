@@ -44,7 +44,7 @@ const Header: FC = () => {
     <AppBar
       position="static"
       style={{
-        backgroundColor: '#292400',
+        backgroundColor: '#EF3340',
         marginBottom: '2rem',
       }}
     >

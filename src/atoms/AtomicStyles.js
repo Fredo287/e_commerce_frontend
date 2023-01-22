@@ -23,7 +23,7 @@ const useStyles = makeStyles(()=> ({
     footer: {
         margin: "2rem 0 0 0",
         padding: "4rem 2rem",
-        backgroundColor: "powderblue"
+        backgroundColor: "#EBECE0"
     }
 }))
 
