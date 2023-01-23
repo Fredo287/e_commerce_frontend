@@ -12,16 +12,16 @@ import {
   Button,
   Link,
 } from '@mui/material';
-import { LockOutlined, Copyright } from '@mui/icons-material';
+import { LockOutlined } from '@mui/icons-material';
 
 const SignUp = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
   };
 
   return (
@@ -109,7 +109,6 @@ const SignUp = () => {
           </Grid>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 5 }} />
     </Container>
   );
 };
