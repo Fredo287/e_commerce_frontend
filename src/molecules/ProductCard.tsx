@@ -9,7 +9,11 @@ import {
 import useStyles from '../atoms/AtomicStyles';
 import ProductDescription from '../atoms/ProductDescription';
 
-const ProductCard: FC = () => {
+interface IProductCardTemplate {
+  id: number;
+}
+
+const ProductCard: FC<IProductCardTemplate> = ({ id }) => {
   const classes = useStyles();
   return (
     <div>
@@ -28,6 +32,7 @@ const ProductCard: FC = () => {
             size="medium"
             variant="contained"
             style={{ backgroundColor: '#292400' }}
+            href={`/${id}`}
           >
             View Product
           </Button>
