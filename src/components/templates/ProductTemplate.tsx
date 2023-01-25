@@ -2,11 +2,9 @@ import React, { FC } from 'react';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import ProductDescription from '../atoms/ProductDescription';
 import Products from '../organisms/Products';
-import useStyles from '../atoms/AtomicStyles';
 import Image from '../atoms/Image';
 
 const ProductTemplate: FC = () => {
-  const classes = useStyles();
   return (
     <Container>
       <Grid container flexDirection="row" spacing={3}>
