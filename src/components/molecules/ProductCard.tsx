@@ -11,10 +11,11 @@ import ProductDescription from '../atoms/ProductDescription';
 
 interface IProductCardTemplate {
   id: number;
+  name: string;
   description: string;
 }
 
-const ProductCard: FC<IProductCardTemplate> = ({ id, description }) => {
+const ProductCard: FC<IProductCardTemplate> = ({ id, name, description }) => {
   const classes = useStyles();
   return (
     <div>
@@ -26,7 +27,11 @@ const ProductCard: FC<IProductCardTemplate> = ({ id, description }) => {
           title="Image title"
         />
         <CardContent>
-          <ProductDescription description={description} />
+          <ProductDescription
+            name={name}
+            description={description}
+            price={1000}
+          />
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchProduct = () => {
-  return <div>SearchProduct</div>;
+  return <input placeholder="Search by name..." />;
 };
 
 export default SearchProduct;

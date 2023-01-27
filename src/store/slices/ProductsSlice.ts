@@ -19,20 +19,14 @@ type InitialState = {
 
 // Async Actions
 export const getProducts = createAsyncThunk("products/getProducts", async () => {
-    // const response = await axios.get("https://localhost:7028/api/Product");
-    // return response.json();
     return axios.get("https://localhost:7028/api/Product")
     .then(res => res.data);
 });
 export const getProduct = createAsyncThunk("products/getProduct", async (id) => {
-    // const response = await axios.get(`https://localhost:7028/api/Product/${id}`);
-    // return response.json();
     return axios.get(`https://localhost:7028/api/Product/${id}`)
     .then(res => res.data);
 });
 export const searchProduct = createAsyncThunk("products/getProduct", async (name) => {
-    // const response = await axios.post(`https://localhost:7028/api/Product/SearchForProduct`, {name: name});
-    // return response.json();
     return axios.post(`https://localhost:7028/api/Product/SearchForProduct`, {name: name})
     .then(res => res.data);
 });

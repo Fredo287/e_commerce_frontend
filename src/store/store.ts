@@ -1,14 +1,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { configureStore } from "@reduxjs/toolkit";
 import { productsReducer } from "./slices/ProductsSlice";
-// import { ordersReducer } from "./slices/OrdersSlice";
 // import { usersReducer } from "./slices/UsersSlice";
+// import { ordersReducer } from "./slices/OrdersSlice";
 
 
 const reducers = {
   products: productsReducer,
+  // users: usersReducer,
   // orders: ordersReducer,
-  // users: usersReducer
 };
 
 const store = configureStore({
