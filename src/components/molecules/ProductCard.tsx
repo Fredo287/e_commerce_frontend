@@ -9,7 +9,12 @@ import {
 import useStyles from '../atoms/AtomicStyles';
 import ProductDescription from '../atoms/ProductDescription';
 
-const ProductCard: FC = () => {
+interface IProductCardTemplate {
+  id: number;
+  description: string;
+}
+
+const ProductCard: FC<IProductCardTemplate> = ({ id, description }) => {
   const classes = useStyles();
   return (
     <div>
@@ -21,13 +26,14 @@ const ProductCard: FC = () => {
           title="Image title"
         />
         <CardContent>
-          <ProductDescription />
+          <ProductDescription description={description} />
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
             size="medium"
             variant="contained"
             style={{ backgroundColor: '#292400' }}
+            href={`/${id}`}
           >
             View Product
           </Button>

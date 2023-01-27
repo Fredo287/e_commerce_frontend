@@ -3,13 +3,13 @@ import React from 'react';
 import './App.css';
 import { CssBaseline } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './organisms/Header';
-import Footer from './organisms/Footer';
-import ProductsTemplate from './templates/ProductsTemplate';
-import ProductTemplate from './templates/ProductTemplate';
-import SignIn from './templates/SignIn';
-import SignUp from './templates/SignUp';
-import Checkout from './templates/Checkout';
+import Header from './components/organisms/Header';
+import Footer from './components/organisms/Footer';
+import ProductsTemplate from './components/templates/ProductsTemplate';
+import ProductTemplate from './components/templates/ProductTemplate';
+import SignIn from './components/templates/SignIn';
+import SignUp from './components/templates/SignUp';
+import Checkout from './components/templates/Checkout';
 
 function App() {
   return (
