@@ -19,7 +19,7 @@ const ProductsTemplate: FC = () => {
             <SearchProduct setSearch={setSearch} />
           </div>
           <Grid item>
-            <Products catId={catId} search={search} />
+            <Products catId={catId} />
           </Grid>
         </Grid>
       </Container>

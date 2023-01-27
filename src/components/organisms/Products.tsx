@@ -17,10 +17,9 @@ export type IProducts = {
 
 interface Product {
   catId: number;
-  search: string;
 }
 
-const Products: FC<Product> = ({ catId, search }) => {
+const Products: FC<Product> = ({ catId }) => {
   const products = useAppSelector((state) => state.products.products);
 
   const dispatch = useAppDispatch();
@@ -28,11 +27,6 @@ const Products: FC<Product> = ({ catId, search }) => {
   // for filtering
   const filteredProducts = products.filter(
     (product) => product.categoryId === catId
-  );
-
-  // for temporary search
-  const searchedProducts = products.filter(
-    (product) => product.name === search
   );
 
   useEffect(() => {
@@ -44,25 +38,6 @@ const Products: FC<Product> = ({ catId, search }) => {
       <Grid container spacing={3}>
         {filteredProducts.length !== 0 ? (
           filteredProducts.map((product: IProducts) => {
-            return (
-              <Grid
-                key={product.productId}
-                item
-                padding="20px 0px"
-                xs={12}
-                sm={6}
-                md={4}
-              >
-                <ProductCard
-                  id={product.productId}
-                  name={product.name}
-                  description={product.description}
-                />
-              </Grid>
-            );
-          })
-        ) : searchedProducts.length !== 0 ? (
-          searchedProducts.map((product: IProducts) => {
             return (
               <Grid
                 key={product.productId}
