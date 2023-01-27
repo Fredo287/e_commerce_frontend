@@ -24,6 +24,14 @@ const useStyles = makeStyles(()=> ({
         margin: "2rem 0 0 0",
         padding: "4rem 2rem",
         backgroundColor: "#EBECE0"
+    },
+    form: {
+        opacity: "100%",
+        borderColor: "black",
+        borderWidth: "medium",
+        borderStyle: "groove",
+        borderRadius: "10px",
+        borderBottom: "10%"
     }
 }))
 

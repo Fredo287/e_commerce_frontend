@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   CssBaseline,
@@ -7,22 +7,34 @@ import {
   Typography,
   Grid,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Button,
   Link,
 } from '@mui/material';
 import { LockOutlined } from '@mui/icons-material';
 
 const SignUp = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
-  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  // for disabling the submit button
+  const [disabled, setDisabled] = useState(true);
+
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   setEmail(data.get('email'));
+  //   setPassword(data.get('password'));
+  //   setConfirmPassword(data.get('confirmPassword'));
+  // };
+
+  // const element = document.getElementById('btn_signup');
+
+  // if (password !== '' && confirmPassword !== '') {
+  //   if (password === confirmPassword) {
+  //     element?.style.display = "false";
+  //   }
+  // }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -41,7 +53,12 @@ const SignUp = () => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Box
+          component="form"
+          noValidate
+          // onSubmit={handleSubmit}
+          sx={{ mt: 3 }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -51,6 +68,7 @@ const SignUp = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -62,6 +80,7 @@ const SignUp = () => {
                 type="password"
                 id="password"
                 autoComplete="new-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -71,29 +90,26 @@ const SignUp = () => {
                 name="confirmPassword"
                 label="Confirm Password"
                 type="password"
-                id="password"
+                id="confirmPassword"
                 autoComplete="new-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="default" />}
-                label="I would like to receive updates on marketing promotions via email."
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Grid>
           </Grid>
           <Button
+            id="btn_signup"
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             style={{ backgroundColor: '#677880' }}
+            disabled={disabled}
           >
             Sign Up
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="sdf" variant="body2" color="#292400">
+              <Link href="signin" variant="body2" color="#292400">
                 Already have an account? Sign in
               </Link>
             </Grid>

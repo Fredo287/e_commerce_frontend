@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useEffect, FC } from 'react';
 import { Container, Grid } from '@mui/material';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import axios from 'axios';
 import ProductCard from '../molecules/ProductCard';
+import { getProducts } from '../../store/slices/ProductsSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 // import useStyles from '../atoms/AtomicStyles';
 
 export type IProducts = {
@@ -14,27 +15,29 @@ export type IProducts = {
   category: null;
 };
 
-const Products = () => {
-  const [products, setProducts] = useState<IProducts[]>();
+interface Product {
+  catId: number;
+}
 
-  // const classes = useStyles();
+const Products: FC<Product> = ({ catId }) => {
+  const products = useAppSelector((state) => state.products.products);
 
-  const getProducts = async () => {
-    axios
-      .get('https://localhost:7028/api/Product')
-      .then((res) => setProducts(res.data))
-      .catch((err) => err);
-  };
+  const dispatch = useAppDispatch();
+
+  // for filtering
+  const filteredProducts = products.filter(
+    (product) => product.categoryId === catId
+  );
 
   useEffect(() => {
-    getProducts();
+    dispatch(getProducts());
   }, []);
 
   return (
     <Container>
       <Grid container spacing={3}>
-        {products ? (
-          products.map((product) => {
+        {filteredProducts.length !== 0 ? (
+          filteredProducts.map((product: IProducts) => {
             return (
               <Grid
                 key={product.productId}
@@ -46,6 +49,26 @@ const Products = () => {
               >
                 <ProductCard
                   id={product.productId}
+                  name={product.name}
+                  description={product.description}
+                />
+              </Grid>
+            );
+          })
+        ) : products ? (
+          products.map((product: IProducts) => {
+            return (
+              <Grid
+                key={product.productId}
+                item
+                padding="20px 0px"
+                xs={12}
+                sm={6}
+                md={4}
+              >
+                <ProductCard
+                  id={product.productId}
+                  name={product.name}
                   description={product.description}
                 />
               </Grid>

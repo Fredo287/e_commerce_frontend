@@ -20,8 +20,12 @@ const ProductTemplate: FC = () => {
 
         {/* Product details and button */}
         <Grid item>
-          <ProductDescription description="" />
-          <Button variant="contained" style={{ backgroundColor: '#EF3340' }}>
+          <ProductDescription name="" description="" price={1000} />
+          <Button
+            variant="contained"
+            style={{ backgroundColor: '#EF3340' }}
+            href="/checkout"
+          >
             Add to cart
           </Button>
         </Grid>
@@ -34,7 +38,7 @@ const ProductTemplate: FC = () => {
             {' '}
             Other products you might be interested in{' '}
           </Typography>
-          <Products />
+          <Products catId={0} />
         </Grid>
       </Grid>
     </Container>
