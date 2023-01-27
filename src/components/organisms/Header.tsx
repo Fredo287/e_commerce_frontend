@@ -14,7 +14,7 @@ import AdbIcon from '@mui/material/Icon';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 
-const pages = ['Products', 'Contact', 'About Us'];
+// const pages = ['Products', 'Contact', 'About Us'];
 const settings = ['Logout', 'My Orders'];
 
 const Header: FC = () => {
@@ -98,11 +98,17 @@ const Header: FC = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="right">{page}</Typography>
-                </MenuItem>
-              ))}
+              {/* {pages.map((page) => ( */}
+              <MenuItem
+                // key={page} onClick={handleCloseNavMenu}
+                href="/"
+              >
+                <Typography textAlign="right">
+                  Products
+                  {/* {page} */}
+                </Typography>
+              </MenuItem>
+              {/* ))} */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -127,15 +133,18 @@ const Header: FC = () => {
             <LocalGroceryStoreIcon fontSize="large" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              // key={page}
+              // onClick={handleCloseNavMenu}
+              href="/"
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              {' '}
+              Products
+              {/* {page} */}
+            </Button>
+            {/* {pages.map((page) => (
+            ))} */}
           </Box>
 
           <Container style={{ width: '20%' }}>

@@ -38,7 +38,7 @@ const ProductTemplate: FC = () => {
             {' '}
             Other products you might be interested in{' '}
           </Typography>
-          <Products catId={0} />
+          <Products catId={0} search="" />
         </Grid>
       </Grid>
     </Container>
